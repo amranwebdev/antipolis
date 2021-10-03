@@ -49,13 +49,13 @@ class StudentController extends Controller
         ]);
 
         $student = new Student();
-        $student->student_id = $request->id;
+        //$student->student_id = $this->user->students()->get("id");
         $student->name = $request->name;
         $student->details = $request->details;
         
 
-        //if ($this->user->students->save($student)) {
-        if ($student->save()) {
+        if ($this->user->students()->save($student)) {
+        //if ($student->save()) {
 
         return response()->json([
             "status"=> true,
